@@ -18,7 +18,7 @@
 */
 import type { Equal, Expect } from '../utils'
 
-type MyReturnType<T> = T extends (...args: any) => infer R ? R : never;
+type MyReturnType<T extends (...args: any[]) => any> = T extends (...args: any[]) => infer R ? R : never;
 
 type cases = [
     Expect<Equal<string, MyReturnType<() => string>>>,
